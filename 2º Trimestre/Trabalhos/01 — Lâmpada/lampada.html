@@ -1,49 +1,30 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Atividade 01</title>
-    < src="js/jquery-3.3.1.min.js"></>
+    <title>Lâmpada Acesa, Apagada e Quebrada</title>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 
-    <>
+    <script>
       $(document).ready(function(){
 
-        if($("#imagem").attr("src", "http://i.stack.imgur.com/b983w.jpg")){
+          $("#lampada").mouseenter(function () {
+             $("#lampada").attr("src", "http://i.stack.imgur.com/ybxlO.jpg");
+           });
 
-          $("#imagem").mouseenter(function(){
-              $("#imagem").attr("src", "http://i.stack.imgur.com/ybxlO.jpg");
-            });
+          $("#lampada").mouseleave(function () {
+             $("#lampada").attr("src", "http://i.stack.imgur.com/b983w.jpg");
+           });
 
-        }elseif($("#imagem").attr("src", "http://i.stack.imgur.com/b983w.jpg"))
-      });
-    </>
+           $("#lampada").dblclick(function () {
+              $("#lampada").attr("src", "http://i.stack.imgur.com/MRjsF.jpg")
+              $("#lampada").attr("id", "");
+          });
+         });
+
+    </script>
   </head>
   <body>
-    <img id="imagem" src="http://i.stack.imgur.com/b983w.jpg" alt="">
+        <center><img id="lampada" src="http://i.stack.imgur.com/b983w.jpg" alt=""></center>
   </body>
 </html>
-
-
- <!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Atividade 01</title>
-    < src="js/jquery-3.3.1.min.js"></>
-
-    <>
-      $(document).ready(function(){
-
-
-
-        $("#imagem").mouseenter(function(){
-            $("#imagem").attr("src", "http://i.stack.imgur.com/ybxlO.jpg");
-          });
-      });
-    </>
-  </head>
-  <body>
-    <img id="imagem" src="http://i.stack.imgur.com/b983w.jpg" alt="">
-  </body>
-</html> -->
