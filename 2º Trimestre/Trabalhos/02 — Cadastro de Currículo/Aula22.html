@@ -8,15 +8,78 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap4/js/bootstrap.min.js"></script>
 
+    <script>
+
+    $(document).ready( function(){
+
+    $("#aba1").click(function(){
+
+        $("#p1").show();
+
+        $("#p2").hide();
+        $("#p3").hide();
+      });
+
+      $("#aba2").click(function(){
+
+        $(".aba").hide();
+        $("#p2").fadeIn();
+      });
+
+      $("#aba3").click(function(){
+        $(".aba").hide();
+        $("#p3").fadeIn();
+      });
+    } );
     </script>
+
+    <style media="screen">
+    .aba{
+      display: none;
+    }
+    </style>
+
   </head>
   <body>
     <div class="container-fluid">
-
-      <h2 class="border-bottom">Cadastro de Currículo</h2>
-
+      <h2 class="border-bottom">Cadastro de Currículo Online</h2>
       <p>Preencha o formulário abaixo para se cadastrar.</p>
+    </div>
 
+    <a href="#" class="container-fluid" id="aba1">Dados Pessoais</a>
+    <a href="#" class="container-fluid" id="aba2">Formação Acadêmica</a>
+    <a href="#" class="container-fluid" id="aba3">Dados Profissionais</a>
+
+    <!-- Inserir formulário -->
+    <div id="p1" class="aba">
+
+      <div class="row">
+        <div class="col-md-6">
+          <label for="inputNome">Nome</label>
+          <input type="text" class="form-control" id="inputNome" placeholder="Digite nome completo">
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-3">
+          <label for="inputNomeMae">Nome de Mãe:</label>
+          <input type="text" class="form-control" id="inputNomeMae" placeholder="Digite nome completo da sua mãe">
+        </div>
+
+        <div class="col-md-3">
+          <label for="inputNomePai">Nome de Pai:</label>
+          <input type="text" class="form-control" id="inputNomePai" placeholder="Digite nome completo do seu pai">
+        </div>
+
+
+      </div>
+
+    <div id="p2" class="aba">
+      IFPR - Instituto Federal do Paraná
+    </div>
+
+    <div id="p3" class="aba">
+      O Corinthians só ganha com ajuda do árbitro.
     </div>
 
   </body>
