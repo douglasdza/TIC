@@ -1,86 +1,257 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Atividades com Bootstrap 4</title>
+<head>
+  <meta charset="utf-8">
+  <title>Atividades com Bootstrap 4</title>
 
-    <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="bootstrap4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap4/js/bootstrap.min.js"></script>
 
-    <script>
-
-    $(document).ready( function(){
+  <script>
+  $(document).ready( function(){
 
     $("#aba1").click(function(){
 
-        $("#p1").show();
+      $("#p1").show();
 
-        $("#p2").hide();
-        $("#p3").hide();
+      $("#p2").hide();
+      $("#p3").hide();
+      $("#p4").hide();
+    });
+
+    $("#aba2").click(function(){
+
+      $(".aba").hide();
+      $("#p2").fadeIn();
+    });
+
+    $("#aba3").click(function(){
+
+      $(".aba").hide();
+      $("#p3").fadeIn();
+    });
+
+    $("#aba4").click(function(){
+
+      $(".aba").hide();
+      $("#p4").fadeIn();
+    });
+
+  } );
+  </script>
+
+  <script>
+      $(document).ready(function(){
+
+        $("#cadastro").submit(function(e){
+
+            $(".avisogeral").text("");
+
+            $(".obrigatorio").each(function() {
+
+              if( $(this).val() == "" ){
+                e.preventDefault();
+                // $(this).next("span").text("Este campo é obrigatório!");
+                var msg = "O campo " + $(this).attr("name") + " é obrigatório.<br/>";
+
+                $(".avisogeral").append( msg );
+
+              }
+            });
+        });
       });
+  </script>
 
-      $("#aba2").click(function(){
+  <!-- <script>
+      $(document).ready(function(){
 
-        $(".aba").hide();
-        $("#p2").fadeIn();
+        $("#cadastro").submit(function(e){
+
+            $(".avisogeral").each(function() {
+
+              if( $(this).val() == "" ){
+
+                $(this).next("span").text("Favor preencher os campos obrigatórios!");
+
+                e.preventDefault();
+              }
+            });
+        });
       });
+  </script> -->
 
-      $("#aba3").click(function(){
-        $(".aba").hide();
-        $("#p3").fadeIn();
-      });
-    } );
-    </script>
 
-    <style media="screen">
-    .aba{
-      display: none;
-    }
-    </style>
+  <style media="screen">
+  .aba{
+    display: none;
+  }
+  </style>
 
-  </head>
-  <body>
+  <style media="screen">
+  span{
+    color: red;
+  }
+  </style>
+
+</head>
+<body>
+
     <div class="container-fluid">
       <h2 class="border-bottom">Cadastro de Currículo Online</h2>
-      <p>Preencha o formulário abaixo para se cadastrar.</p>
+      <p class="avisogeral"></p>
+      <!-- <p class="avisogeral">Preencha o formulário abaixo para se cadastrar.</p> -->
+      <span></span>
     </div>
 
     <a href="#" class="container-fluid" id="aba1">Dados Pessoais</a>
     <a href="#" class="container-fluid" id="aba2">Formação Acadêmica</a>
     <a href="#" class="container-fluid" id="aba3">Dados Profissionais</a>
+    <a href="#" class="container-fluid" id="aba4">Login</a>
 
     <!-- Inserir formulário -->
+    <form id="cadastro" action="" method="post">
+
     <div id="p1" class="aba">
 
       <div class="row">
         <div class="col-md-6">
-          <label for="inputNome">Nome</label>
-          <input type="text" class="form-control" id="inputNome" placeholder="Digite nome completo">
+          <label for="inputNome">Nome:</label>
+          <input class="obrigatorio" type="text" name="Nome" class="form-control" id="inputNome" placeholder="Digite nome completo">
+          <br>
+          <span></span>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="row">
+        <div class="col-md-3">
+          <label for="inputRG">RG:</label>
+          <input class="obrigatorio" type="text" name="RG" class="form-control" id="inputRG" placeholder="Digite número do seu RG">
+          <span></span>
+        </div>
+
+        <div class="col-md-3">
+          <label for="inputCPF">CPF:</label>
+          <input class="obrigatorio" type="text" name="CPF" class="form-control" id="inputCPF" placeholder="Digite número do seu CPF">
+          <span></span>
+        </div>
+      </div>
+
+      <br/>
+      <div class="col-md-4">
+        <label for="inputEndereco">Endereço:</label>
+        <input class="obrigatorio" type="text" name="Endereço" class="form-control" id="inputEndereco" placeholder="Digite seu endereço">
+        <span></span>
+      </div>
+
+      <br/>
+      <input type="submit" value="Enviar formulário">
+    </div>
+
+    <!-- Segunda aba - Dados acadêmicos -->
+    <div id="p2" class="aba">
+      <div class="row">
+        <div class="col-md-6">
+          <br/>
+          <label for="selectFormacao">Selecione sua formação acadêmica:</label>
+          <select name="selectFormacao">
+            <br/>
+            <option>Selecionar...</option>
+            <option>Ensino Fundamental completo</option>
+            <option>Ensino Fundamental incompleto</option>
+            <option>Ensino Médio completo</option>
+            <option>Ensino Médio incompleto</option>
+            <option>Ensino Superior completo</option>
+            <option>Ensino Superior incompleto</option>
+            <option>Cursando Ensino Superior</option>
+            <option>Cursando Ensino Médio/Fundamental/EJA</option>
+          </select>
         </div>
       </div>
       <br/>
+
       <div class="row">
         <div class="col-md-3">
-          <label for="inputNomeMae">Nome de Mãe:</label>
-          <input type="text" class="form-control" id="inputNomeMae" placeholder="Digite nome completo da sua mãe">
+
+          <label for="inputInstituicao">Instituição de Ensino:</label>
+          <input class="obrigatorio" type="text" name="Instituição de Ensino" class="form-control" id="inputInstituicao" placeholder="Digite nome da última instituição de ensino que estudou">
+          <span></span>
         </div>
 
         <div class="col-md-3">
-          <label for="inputNomePai">Nome de Pai:</label>
-          <input type="text" class="form-control" id="inputNomePai" placeholder="Digite nome completo do seu pai">
+          <label for="inputAnoConclusao">Ano de Conclusão:</label>
+          <input class="obrigatorio" type="text" name="Ano de Conclusão" class="form-control" id="inputAnoConclusao" placeholder="Digite o ano de conclusão">
+          <span></span>
         </div>
+      </div>
+    </div>
 
-
+    <!-- Terceira aba - Dados acadêmicos -->
+    <div id="p3" class="aba">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="inputEmpresa">Empresa:</label>
+          <input class="obrigatorio" type="text" name="Empresa" class="form-control" id="inputEmpresa" placeholder="Digite nome da última empresa que trabalhou">
+          <span></span>
+        </div>
       </div>
 
-    <div id="p2" class="aba">
-      IFPR - Instituto Federal do Paraná
+      <br/>
+
+      <div class="row">
+        <div class="col-md-3">
+          <label for="inputDtEntrada">Data de Entrada:</label>
+          <input class="obrigatorio" type="date" name="Data de Entrada" class="form-control" id="inputDtEntrada" placeholder="">
+          <span></span>
+        </div>
+
+        <div class="col-md-3">
+          <label for="inputDtSaida">Data de Saída:</label>
+          <input class="obrigatorio" type="date" name="Data de Saída" class="form-control" id="inputDtSaida" placeholder="">
+          <span></span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <br/>
+        <label for="inputCargo">Função exercida:</label>
+        <input class="obrigatorio" type="text" name="Função exercida" class="form-control" id="inputCargo" placeholder="Digite o nome de função/cargo exercido(a)">
+        <span></span>
+      </div>
     </div>
 
-    <div id="p3" class="aba">
-      O Corinthians só ganha com ajuda do árbitro.
+    <!-- Quarta aba - Login-->
+    <div id="p4" class="aba">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="inputUsuario">Usuário:</label>
+          <input class="obrigatorio" type="text" name="Usuário" class="form-control" id="inputEmpresa" placeholder="Digite nome de usuário">
+          <span></span>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="row">
+        <div class="col-md-3">
+          <label for="inputSenha">Digite senha:</label>
+          <input class="obrigatorio" type="password" name="Digite senha" class="form-control" id="inputSenha" placeholder="Digite a senha">
+          <span></span>
+        </div>
+
+        <div class="col-md-3">
+          <label for="inputSenhaRepetida">Repita a senha:</label>
+          <input class="obrigatorio" type="password" name="Repita a senha" class="form-control" id="inputSenhaRepetida" placeholder="Digite a senha novamente">
+          <span></span>
+        </div>
+      </div>
+      <br/>
+      <input type="submit" value="Enviar formulário">
     </div>
 
-  </body>
+  </form>
+
+</body>
 </html>
