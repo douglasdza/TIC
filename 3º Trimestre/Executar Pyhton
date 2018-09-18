@@ -1,0 +1,9 @@
+Para compilar, deve executar utilizando terminal.
+
+Primeiro, adicione a pasta onde fica código .py no terminal.
+
+Em seguida, digite: python3 nome_do_arquivo e dê Enter.
+
+Por exemplo, o nome de arquivo é Teste.py, então deve digitar no terminal: python3 Teste.py que irá exibir textos.
+
+
