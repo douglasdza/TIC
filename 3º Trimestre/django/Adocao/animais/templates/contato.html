@@ -6,6 +6,37 @@
 
 {% block conteudo %}
 
-Contato
+<div class="container">
+
+  <div class="row pt-5">
+
+    <div class="col-sm p-5">
+
+      <h2>Entrar em contato:</h2>
+
+      <p>
+        <form action="/your-name/" method="post">
+            <label for="your_name">Nome: </label><br>
+            <input id="your_name" type="text" name="your_name" value="{{ current_name }}" required>
+            <br><br>
+
+            <label for="your_email">E-mail: </label><br>
+            <input id="your_email" type="text" name="your_email" value="{{ current_email }}" required>
+
+            <br><br>
+            <label for="your_fone">Telefone: </label><br>
+            <input id="your_fone" type="text" name="your_fone" maxlength="100" required>
+
+            <br><br>
+            <br><input type="submit" value="OK">
+        </form>
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
 {% endblock %}
