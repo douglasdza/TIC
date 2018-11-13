@@ -1,0 +1,36 @@
+{% extends 'modelo.html' %}
+
+{% load bootstrap4 %}
+
+{% block cabecalho %}
+
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="container">
+
+  <div class="row pt-5">
+
+    <div class="col-sm p-5">
+
+      <h2>Cadastro</h2>
+      Favor preencher os dados corretamente para que a ONG possa entrarm em contato com você.
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% bootstrap_form form %}
+
+            <br><br>
+            <br><input type="submit" value="Enviar!">
+        </form>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

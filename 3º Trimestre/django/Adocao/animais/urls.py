@@ -9,5 +9,8 @@ urlpatterns = [
     #   ( endereço, método da view, nome da url )
     path('', Index.as_view(), name="index" ),
     path('ajuda/', Ajuda.as_view(), name="ajuda"),
-    path('contato/', Contato.as_view(), name="contato")
+    path('contato/', Contato.as_view(), name="contato"),
+
+    path('nova/cidade', CidadeCreate.as_view(), name='inserir-cidade'),
+    path('nova/pessoa', PessoaCreate.as_view(), name='inserir-pessoa'),
 ]
