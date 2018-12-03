@@ -25,6 +25,9 @@ class Pessoa(models.Model):
 class Tipo(models.Model):
     tipo = models.CharField(max_length=50, help_text='Tipo de animal')
 
+    def __str__(self):
+        return self.tipo + ' - ' + str()
+
 class Animal(models.Model):
     nome = models.CharField(max_length=50, help_text='Nome do animal')
     raca = models.CharField(max_length=50, help_text='Raça')
