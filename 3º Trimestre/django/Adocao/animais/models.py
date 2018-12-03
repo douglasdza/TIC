@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 # Todas as classes extendem a classe models.Model
 class Cidade(models.Model):
     # nome_do_atributo = tipoDele(características)

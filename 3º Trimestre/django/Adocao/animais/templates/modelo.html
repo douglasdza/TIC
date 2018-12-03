@@ -1,4 +1,3 @@
-
 <!-- Carregar o módulo e as referências lá para o static -->
 {% load static %}
 
@@ -47,6 +46,23 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'contato' %}">Contato</a>
             </li>
+
+<!-- NOVO CÓDIGO ABAIXO - 03/12/2018 -->
+            <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        Cadastros
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'listar-cidades' %}">Cidade</a>
+                        <a class="dropdown-item" href="{% url 'listar-pessoas' %}">Pessoa</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Animal</a>
+                        <a class="dropdown-item" href="#">Tipo</a>
+                      </div>
+          </li>
+<!-- NOVO CÓDIGO ACIMA - 03/12/2018 -->
+
           </ul>
         </div>
       </div>

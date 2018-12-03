@@ -9,6 +9,9 @@ from .models import*
 # Importar os métodos View para inserir, alterar e excluir
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+# Importar a View para listar classes
+from django.views.generic.list import ListView
+
 # Importar a função para gerar o endereço de nossas URLS inteiras
 from django.urls import reverse_lazy
 
@@ -36,6 +39,21 @@ class CidadeCreate(CreateView):
     # Define quais campos vão estar no formulário
     fields = ['nome', 'estado']
 
+class CidadeUpdate(UpdateView):
+    model = Cidade
+    sucess_url = reverse_lazy('listar-cidades')
+    template_name = 'form.html'
+    fields = ['nome', 'estado']
+
+class CidadeDelete(DeleteView):
+    model = Cidade
+    sucess_url = reverse_lazy('listar-cidades')
+    template_name = 'form_delete.html'
+
+class CidadeList(ListView):
+    model = Cidade
+    template_name = 'cidade_list.html'
+
 class PessoaCreate(CreateView):
     # Identificar o modelo
     model = Pessoa
@@ -45,3 +63,18 @@ class PessoaCreate(CreateView):
     template_name = 'form.html'
     # Define quais campos vão estar no formulário
     fields = ['nome', 'email', 'nascimento', 'cidade']
+
+class PessoaUpdate(UpdateView):
+    model = Pessoa
+    success_url = reverse_lazy('listar-pessoas')
+    template_name = 'form.html'
+    fields = ['nome', 'email', 'nascimento', 'cidade']
+
+class PessoaDelete(DeleteView):
+    model = Pessoa
+    success_url = reverse_lazy('listar-pessoas')
+    template_name = 'form_delete.html'
+
+class PessoaList(ListView):
+    model = Pessoa
+template_name = 'pessoa_list.html'
