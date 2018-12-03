@@ -20,4 +20,14 @@ urlpatterns = [
     path('editar/pessoa/<int:pk>', PessoaUpdate.as_view(), name='editar-pessoa'),
     path('excluir/pessoa/<int:pk>', PessoaDelete.as_view(), name='excluir-pessoa'),
     path('listar/pessoas/', PessoaList.as_view(), name="listar-pessoas"),
+
+    path('nova/animal/', AnimalCreate.as_view(), name='inserir-animal'),
+    path('editar/animal/<int:pk>', AnimalUpdate.as_view(), name='editar-animal'),
+    path('excluir/animal/<int:pk>', AnimalDelete.as_view(), name='excluir-animal'),
+    path('listar/animais/', AnimalList.as_view(), name="listar-animais"),
+
+    path('nova/tipo/', TipoCreate.as_view(), name='inserir-tipo'),
+    path('editar/tipo/<int:pk>', TipoUpdate.as_view(), name='editar-tipo'),
+    path('excluir/tipo/<int:pk>', TipoDelete.as_view(), name='excluir-tipo'),
+    path('listar/tipos/', TipoList.as_view(), name="listar-tipos"),
 ]

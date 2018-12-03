@@ -20,7 +20,6 @@ class Index(TemplateView):
     # Define qual o arquivo HTML vai ser usado para exibir esta página
     template_name = "pagina_inicial.html" # deve estar na pasta templates
 
-
 # Página de ajuda
 class Ajuda(TemplateView):
     # Define qual o arquivo HTML vai ser usado para exibir esta página
@@ -54,6 +53,9 @@ class CidadeList(ListView):
     model = Cidade
     template_name = 'cidade_list.html'
 
+# /////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////
+
 class PessoaCreate(CreateView):
     model = Pessoa
     success_url = reverse_lazy('listar-pessoas')
@@ -74,3 +76,54 @@ class PessoaDelete(DeleteView):
 class PessoaList(ListView):
     model = Pessoa
     template_name = 'pessoa_list.html'
+
+# /////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////
+
+class TipoCreate(CreateView):
+    model = Tipo
+    success_url = reverse_lazy('listar-tipos')
+    template_name = 'form.html'
+    fields = ['tipo']
+
+class TipoUpdate(UpdateView):
+    model = Tipo
+    success_url = reverse_lazy('listar-tipos')
+    template_name = 'form.html'
+    fields = ['tipo']
+
+class TipoDelete(DeleteView):
+    model = Tipo
+    success_url = reverse_lazy('listar-tipos')
+    template_name = 'form_delete.html'
+
+class TipoList(ListView):
+    model = Tipo
+    template_name = 'tipo_list.html'
+
+# /////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////
+
+class AnimalCreate(CreateView):
+    model = Animal
+    success_url = reverse_lazy('listar-animais')
+    template_name = 'form.html'
+    fields = ['nome', 'raca', 'tipo']
+
+class AnimalUpdate(UpdateView):
+    model = Animal
+    success_url = reverse_lazy('listar-animais')
+    template_name = 'form.html'
+    fields = ['nome', 'raca', 'tipo']
+
+class AnimalDelete(DeleteView):
+    model = Animal
+    success_url = reverse_lazy('listar-animais')
+    template_name = 'form_delete.html'
+
+class AnimalList(ListView):
+    model = Animal
+    template_name = 'animal_list.html'
+
+# /////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////
