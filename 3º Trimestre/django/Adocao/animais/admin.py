@@ -8,3 +8,6 @@ admin.site.register(Cidade)
 admin.site.register(Pessoa)
 admin.site.register(Animal)
 admin.site.register(Tipo)
+
+# L: douglas
+# P: 2018django
