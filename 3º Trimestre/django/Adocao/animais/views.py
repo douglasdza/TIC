@@ -33,7 +33,7 @@ class CidadeCreate(CreateView):
     # Identificar o modelo
     model = Cidade
     # Define para onde vai redirecionar depois de inserir
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar-cidades')
     # Define qual o template vai ser usados
     template_name = 'form.html'
     # Define quais campos vão estar no formulário
@@ -55,13 +55,9 @@ class CidadeList(ListView):
     template_name = 'cidade_list.html'
 
 class PessoaCreate(CreateView):
-    # Identificar o modelo
     model = Pessoa
-    # Define para onde vai redirecionar depois de inserir
-    success_url = reverse_lazy('index')
-    # Define qual o template vai ser usados
+    success_url = reverse_lazy('listar-pessoas')
     template_name = 'form.html'
-    # Define quais campos vão estar no formulário
     fields = ['nome', 'email', 'nascimento', 'cidade']
 
 class PessoaUpdate(UpdateView):
@@ -77,4 +73,4 @@ class PessoaDelete(DeleteView):
 
 class PessoaList(ListView):
     model = Pessoa
-template_name = 'pessoa_list.html'
+    template_name = 'pessoa_list.html'
